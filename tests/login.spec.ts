@@ -9,6 +9,7 @@ test("Should login successfully with valid credentials", async ({ page }) => {
   await loginPage.performLogin("testproes2405", "Vale2015");
   await loginPage.verifySuccessLogin();
 });
+
 test("Should display error message with incorrect credentials", async ({
   page,
 }) => {
@@ -19,6 +20,7 @@ test("Should display error message with incorrect credentials", async ({
   await loginPage.performLogin("testoes24022", "Vale215");
   await loginPage.verifyUnsuccessLogin();
 });
+
 test("Should display error message with Empty username and password fields", async ({
   page,
 }) => {
@@ -29,6 +31,7 @@ test("Should display error message with Empty username and password fields", asy
   await loginPage.performLogin("", "");
   await loginPage.verifyEmptyFieldserrormsg();
 });
+
 test("Confirm that the displayed password functionality is functioning properly.", 
 async ({
   page,

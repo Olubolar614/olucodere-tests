@@ -26,6 +26,7 @@ export class LoginPage {
   async goto() {
     await this.page.goto("https://m.apuestas.codere.es/deportes/#/HomePage");
   }
+  
   async performLogin(username: string, password: string) {
     await this.toaccessbutton.click();
     await this.usernameField.fill(username);
@@ -36,16 +37,19 @@ export class LoginPage {
   async verifySuccessLogin() {
     await expect(this.loginusername).toBeVisible();
   }
+  
   async verifyUnsuccessLogin() {
     const errorMessage = await this.page.textContent(".alertMessageCustom");
     expect(errorMessage).toBe(
       " Por favor, revisa los datos y vuelve a intentarlo. Ten en cuenta el uso de mayúsculas y minúsculas en tu contraseña."
     );
   }
+  
   async verifyEmptyFieldserrormsg() {
     const errorMessage = await this.page.textContent(".alert-message");
     expect(errorMessage).toBe("Revisa que todos los campos estén rellenos");
   }
+  
   async verifyShownpassword(){
     const password = 'Testuser';
     await this.toaccessbutton.click();
